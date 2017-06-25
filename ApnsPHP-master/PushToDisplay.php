@@ -24,12 +24,12 @@ function pushToDisplay($device_token, $url, $text)
     $push->connect();
 
     $message = new ApnsPHP_Message($device_token);
-    $message->setCustomIdentifier("Message-Badge-3");//?
-    $message->setBadge(3);//?
+    $message->setCustomIdentifier("Message-Badge-3");
+    $message->setBadge(3);
     $message->setText($text);
     $message->setSound();
     $message->setCustomProperty('url', $url);
-    $message->setExpiry(30);// Set the expiry value to 30 seconds
+    $message->setExpiry(30);
 
     $push->add($message);
     $push->send();
@@ -40,5 +40,3 @@ function pushToDisplay($device_token, $url, $text)
         var_dump($aErrorQueue);
     }
 }
-echo 'dddd';
-//pushToDisplay('067ee4422fb01c002a1754ff0127d70b0663486916603d2eac8e3181cf32333b', 'http://133.2.1.1', 'hello Swiped');
